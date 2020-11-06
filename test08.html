@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var img
+	function add() {
+		img = document.createElement('img') // <img>태그 생성
+		/*
+		img.src = 'images/test1.jpg' // <img>태그의 src속성 경로 설정
+		img.width = 100 // 이미지 너비 설정
+		img.height = 100 // 이미지 높이 설정
+		*/
+		img.setAttribute('src','test1.jpg')
+		img.setAttribute('width',100)
+		img.setAttribute('height',100)
+
+		//document.body.appendChild(img) //<body>태그에 자식태그로 append하겠다.
+		document.getElementById('test').appendChild(img) //body태그에 id를 부여해서 다음과 같이 img태그를 넣어줄 수도 있다.
+	}
+	function remove() {
+		document.body.removeChild(img)
+	}
+	function insertOpt() { //<body>의 onload 속성에 의해 페이지가 열렸을때 자동실행
+		var insert = document.getElementById('insert') //insert id를 가지고 있는 <select> 얻어서 변수 insert에 저장
+		var arr = ['야구','축구','배구','농구']
+		for (i=0;i<arr.length;i++) {
+			opt = document.createElement('option') 
+			opt.value=arr[i]
+			opt.innerHTML = arr[i]
+			insert.appendChild(opt) //select태그에 opt 집어넣기
+		}
+	}
+	
+	function textstyle() { 
+		sty = document.getElementById('msg') //id='msg'를 가지고 있는 태그를 찾아 sty에 저장
+		sty.style.fontSize = "30px" //해당 태그 폰트 사이즈 변경
+		sty.style.fontStyle = "italic" //해당 태그 폰트 스타일 변경
+		sty.style.color = "red"
+	} 
+	function texthidden() {	
+		document.getElementById('msg').style.visibility = "hidden" //id='msg' 태그 안 내용 숨기기
+	}
+	function textvisible() { 
+		document.getElementById('msg').style.visibility = "visible" //id='msg' 태그 안 내용 보이게 하기
+	}
+	
+	function clearElement() {
+		document.getElementById('cl').innerHTML = ""
+	}
+	
+</script>
+</head>
+<body id="cl" onload="insertOpt()" style="background-color: skyblue;">
+	<input type="button" value="BODY 하위 태그 삭제" onclick="clearElement()">
+<hr>
+	<p id="msg">문서 객체 스타일 변경</p>
+	<input type="button" value="텍스트 스타일 변경" onclick="textstyle()">
+	<input type="button" value="텍스트 숨기기" onclick="texthidden()">
+	<input type="button" value="텍스트 보이기" onclick="textvisible()">
+<hr>
+	<p id="test">test</p>
+	<a href="#" onclick="add()">[이미지 추가]</a>
+	<a href="#" onclick="remove()">[이미지 삭제]</a>
+	
+<hr>
+	<select id="insert">
+		
+	</select>
+</body>
+</html>

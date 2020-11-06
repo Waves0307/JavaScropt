@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#wrap {
+		width: 1000px;
+		display : flex;
+		flex-flow : row;
+		margin: 0 auto;
+	}
+</style>
+</head>
+<script type="text/javascript">
+	imgList = []
+	function addImage(str) {
+		
+		console.log("함수실행")
+						
+		img = document.createElement('img')
+		img.src = 'images/'+str
+		img.width = 100
+		img.height = 100
+		
+		if(imgList.length == 5) { //길이가 5라면 맨 앞요소 없애고 뒤에 요소 추가
+			imgList.push(img)
+			imgList.shift()
+			console.log("push와 shift 실행")
+			document.getElementById('stock').innerHTML=""
+		} else {
+			imgList.push(img)
+			console.log("push만 실행")
+		}
+		
+		console.log("현재 리스트의 크기"+imgList.length)
+		if (imgList.length != 0) {
+			list()
+		}
+		
+		for (i = 0; i < imgList.length;i++) {
+			document.getElementById('stock').appendChild(imgList[i])	
+		}
+	}
+	
+	function list() {
+		console.log("장바구니 기능 실행")
+		m = document.getElementById("listStatus")
+		m.innerHTML = "최근 구경한 상품"
+		m.style.backgroundColor="green"
+	}
+	
+</script>
+<body>
+	<div id="wrap">
+		<div align="center" style="width: 850px">
+			<table id="table" border="1">
+				<tr>
+					<td><a href="#" onclick="addImage('최근상품01.jpg')"><img src="images/최근상품01.jpg" style="height: 100px; width: 100px"></a></td>
+					<td><a href="#" onclick="addImage('최근상품02.jpg')"><img src="images/최근상품02.jpg" style="height: 100px; width: 100px"></a></td>
+					<td><a href="#" onclick="addImage('최근상품03.jpg')"><img src="images/최근상품03.jpg" style="height: 100px; width: 100px"></a></td>
+					<td><a href="#" onclick="addImage('최근상품04.jpg')"><img src="images/최근상품04.jpg" style="height: 100px; width: 100px"></a></td>
+				</tr>
+				<tr>
+					<td><a href="#" onclick="addImage('최근상품05.jpg')"><img src="images/최근상품05.jpg" style="height: 100px; width: 100px"></a></td>
+					<td><a href="#" onclick="addImage('최근상품06.jpg')"><img src="images/최근상품06.jpg" style="height: 100px; width: 100px"></a></td>
+					<td><a href="#" onclick="addImage('최근상품07.jpg')"><img src="images/최근상품07.jpg" style="height: 100px; width: 100px"></a></td>
+					<td><a href="#" onclick="addImage('최근상품08.jpg')"><img src="images/최근상품08.jpg" style="height: 100px; width: 100px"></a></td>
+				</tr>
+			</table>
+		</div>
+		<div id="myList" style="display: flex; flex-flow: column; width: 100px" align="right">
+			<p id="listStatus" style="background-color: red; text-align: center;" > 목록이<br>없습니다.</p>
+			<div id="stock"></div>
+		</div>
+	</div>
+</body>
+</html>

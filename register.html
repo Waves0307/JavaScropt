@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//아이디 입력 안했을 경우 경고창 뜬후 needId.focus()
+	function reg() {
+		console.log("submit()메소드 실행")
+		id = document.getElementById("needId").value;
+		console.log(id+"")
+		pw = document.getElementById("needPwd").value;
+		pw1 = document.getElementById("needPwd1").value;
+		name = document.getElementById("needName").value;
+		font = document.getElementById("font").value;
+		console.log(font+"")
+		if(id === "") {
+			alert("아이디는 필수 사항입니다.")
+			document.getElementById("needId").focus()
+		} else if(pw === "") {
+			alert("비밀번호는 필수 사항입니다.")
+			document.getElementById("needPwd").focus()
+		} else if(pw === ""){
+			alert("비밀번호 확인은 필수 사항입니다.")
+			document.getElementById("needPwd1").focus()
+		} else if(pw !== pw1){
+			alert("비밀번호 확인 요망")
+			document.getElementById("needPwd1").focus()
+		} else {
+			fo.submit()	
+		}
+	}
+	function equal() {
+		console.log("비밀번호 일치 기능 실행")
+		pw = document.getElementById("needPwd").value;
+		pw1 = document.getElementById("needPwd1").value;
+		if(pw !== pw1) {
+			document.getElementById("font").innerHTML = "불일치!!"
+		} else {
+			document.getElementById("font").innerHTML = "확인!!"
+		}
+	}
+</script>
+</head>
+<body>
+	<form id="fo" action="success.html" method="get">
+		<input id="needId"type="text"><br>
+		<input id="needPwd"type="text"><br>
+		<input id="needPwd1"type="text" onchange="equal()">
+		<i id="font"> </i><br>
+		<input id="needName"type="text"><br>
+		<input type="button" value="등록" onclick="reg()">
+	</form>
+</body>
+</html>

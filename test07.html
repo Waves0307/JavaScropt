@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function init() {
+			alert('초기화 작업을 진행합니다')
+		}
+		//페이지가 뜨자마자 이 함수가 실행되게 하려면 <body onload="init()">를 작성하면 된다.
+	</script>
+	
+	<style type="text/css">
+		div{background-color: #d94a38; width:120px; height: 50px;}
+	</style>
+	
+	<script type="text/javascript">
+		function mOver(obj) {
+			obj.innerHTML = "Thank You"
+		}
+		function mOut(obj) {
+			obj.innerHTML = "Mouse Over Me"
+		}
+	</script>
+	
+</head>
+<body onload="init()" style="background-color: skyblue;">
+	<div onmouseover="mOver(this)" onmouseout="mOut(this)">
+		Mouse Over Me!!!
+	</div>
+
+
+	 <h1 onmouseover="style.color='red'" 
+	 	onmouseout="style.color='black'">
+	 	Mouse over this text	
+	 </h1>
+</body>
+</html>

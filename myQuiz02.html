@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var num = 1; //페이지 내 전역변수 설정 가능하다.
+	function displayMinus() {
+		if (num == 1) {
+			num = 8;
+		} else {
+			num = num - 1;
+		}
+		
+		document.getElementById('ImageOne').src='images/최근상품0'+num+'.jpg';
+	}
+	function displayPlus() {
+		if (num == 8) {
+			num = 1;	
+		} else {
+			num = num + 1;
+		}
+		document.getElementById('ImageOne').src='images/최근상품0'+num+'.jpg';
+	}
+</script>
+
+<style type="text/css">
+	#wrap{ display:flex; flex-flow: column; margin: 0 auto; width:500px; height: 550px; }
+	#image{ order:1; width:500px; height: 500px;}
+	#down{order:2; width:500px; height: 50px;}
+</style>
+</head>
+<body>
+	<div id="wrap">
+	<div id="image"> 
+		<img id="ImageOne" src="images/최근상품01.jpg" style="height: 500px; width:500px;">
+	</div>
+	<footer id="down" style="background-color: pink; text-align: center"> 
+		<input type="button" onclick="displayMinus()" value="이전 사진" style="padding: 0 2px 0 2px;">
+		<input type="button" onclick="displayPlus()" value="다음 사진" style="padding: 0 2px 0 2px;">
+	</footer>
+	</div>
+</body>
+</html>

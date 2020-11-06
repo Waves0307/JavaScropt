@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function myFocus() {
+		document.getElementById("pw").focus()
+	}
+	
+	function chk() {
+		put = document.getElementById("inPut").value;
+		document.getElementById("outPut").value = put;
+		document.getElementById("inPut").value = "";
+	}
+	
+	function goForward() { window.history.forward()}
+	function goBack() {window.history.back()}
+	
+	function myClick() {
+		alert("안녕하세요. 환영합니다.")
+		var result = confirm("처음 방문 입니까?") 
+		// confirm() : 예:true 아니오:false
+		if(result) {
+			document.getElementById("myclick").innerHTML
+			="처음 방문해 주셔서 감사합니다."
+		} else {
+			document.getElementById("myclick").innerHTML
+			="다시 방문해 주셔서 감사합니다."
+		}
+	}
+	
+	function popup() {
+		//1. 새 팝업이 안뜨고 있던창에서 페이지 전환
+		//window.open("https://www.naver.com", "_self")
+		//2. 지정된 크기의 팝업창이 뜸
+		//window.open("https://www.naver.com","","width=500,height=500")
+		//3. 자신이 지정한 html파일을 팝업시킴
+		window.open("popup.html","","width=500,height=500")
+		
+	}
+	function test() {
+		//id 비번 이런 값이 정상적으로 들어왔다면
+		//fo.submit() //form 내부에 있는 모든 요소값 가지고 감
+		//그게 아니라면 submit() 실행 안되게
+		
+		//location.href="https://www.naver.com" // a 태그와 똑같은 기능
+		
+	}
+	
+</script>
+</head>
+<body style="background-color: skyblue;">
+
+<input type="button" value="naver" onclick="location.href='test02.html'">
+
+	<form id="fo"action = "test01.html" method="get">
+		이름<input type="text" name="n"><br>
+		주소<input type="text" name="a"><br>
+		<input type="submit" value="submit">
+		<input type="button" value="btn" onclick="test()">
+	</form>
+<hr>
+	<input type="button" value="팝업" onclick="popup()"><br>
+<hr>
+	<input type="button" value="방문하기" onclick="myClick()"><br>
+	<p id="myclick"></p>
+<hr>
+	<a href="test01.html">다음 페이지</a><br>
+	<button type="button" onclick="goBack()">이전</button>
+	<button type="button" onclick="goForward()">다음</button>
+<hr>	
+	<input type="text" id="inPut" onchange="chk()"><br>
+	<input type="text" id="outPut"><br>
+	<input type="text"><br>
+<hr>
+	<input type="text" maxlength="5"><br>
+	<input type="text" id="pw"><br>
+	<input type="button" value="클릭" onclick="myFocus()">	
+</body>
+</html>

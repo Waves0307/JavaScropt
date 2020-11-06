@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	#remove{display: none;}
+	#remove.a{display: block; background: green;}
+</style>
+
+<script type="text/javascript">
+
+	function init() {
+		t1 = document.getElementById('target1')
+		t2 = document.getElementById('target2')
+		t1.addEventListener('click',btn_listener) //첫번째 인자 : 이벤트유형(클릭)
+		t2.addEventListener('click',btn_listener) //두번째 인자 : 실행할 메소드
+		/*
+		on속성을 이용하여 이벤트 등록시 이벤트당 하나의
+		함수밖에 등록할 수 없는데
+		EventListener를 이용하면 메소드 안에 여러 이벤트를
+		등록할 수 있다.
+		*/
+	}
+	
+	function btn_listener(event) { //매개변수로 이벤트
+		switch(event.target.id) {
+		case 'target1' : alert('1 선택'); break;
+		case 'target2' : alert('2 선택'); break;
+		}
+		
+		/* let a = 'aaa'  let는 지역변수를 만들때 사용한다. 메소드 내에서
+					      한번만 사용해야 함. let은 전역변수를 선언할때는
+					      사용할 수 없다.
+		    a = 'bbb'     let을 한번 쓰면 같은 변수명으로 let을 또 쓰면 안된다.
+				          var는 가능 var a = 'aaa' var a = 'bbb'
+		*/A
+		let remove = document.getElementById('remove')
+		remove.setAttribute('class','a')
+	}
+	
+	function blockRM() {
+		let remove = document.getElementById('remove')
+		remove.removeAttribute('class')
+	}
+</script>
+</head>
+<body onload="init()">
+	<input type="button" id="target1" value="button1"><br>
+	<input type="button" id="target2" value="button2"><br>
+	<hr>
+	<div id="remove">
+		<h3> 안녕하세요 </h3>
+		<input type="button" value="되돌리기" onclick="blockRM()">
+		<div> <h3>되돌리기 연습</h3></div>
+	</div>
+</body>
+</html>
